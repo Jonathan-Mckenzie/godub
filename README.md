@@ -1,4 +1,10 @@
 godub
+# Fork changes
+- `-ss` option is now supported
+- deprecation fixes
+- trim silence capability
+- internal refs to v2 now updated
+
 ==================
 
 [godub](https://github.com/iFaceless) lets you manipulate audio in an easy and elegant way. It's ported from the excellent project [pydub](https://github.com/jiaaro/pydub).
