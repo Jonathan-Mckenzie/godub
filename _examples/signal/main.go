@@ -8,8 +8,8 @@ import (
 	"path"
 	"runtime"
 
-	"github.com/hopesea/godub/v2"
-	"github.com/hopesea/godub/v2/signals"
+	"github.com/Jonathan-Mckenzie/godub"
+	"github.com/Jonathan-Mckenzie/godub/signals"
 )
 
 func main() {

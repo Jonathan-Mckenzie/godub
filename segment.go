@@ -11,9 +11,9 @@ import (
 
 	"time"
 
-	"github.com/hopesea/godub/v2/audioop"
-	"github.com/hopesea/godub/v2/utils"
-	"github.com/hopesea/godub/v2/wav"
+	"github.com/Jonathan-Mckenzie/godub/audioop"
+	"github.com/Jonathan-Mckenzie/godub/utils"
+	"github.com/Jonathan-Mckenzie/godub/wav"
 )
 
 var (

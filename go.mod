@@ -1,4 +1,4 @@
-module github.com/hopesea/godub/v2
+module github.com/Jonathan-Mckenzie/godub
 
 go 1.19
 

@@ -6,8 +6,8 @@ import (
 
 	"bytes"
 
-	"github.com/hopesea/godub/v2/converter"
-	"github.com/hopesea/godub/v2/wav"
+	"github.com/Jonathan-Mckenzie/godub/converter"
+	"github.com/Jonathan-Mckenzie/godub/wav"
 )
 
 type Exporter struct {

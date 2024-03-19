@@ -9,9 +9,9 @@ import (
 
 	"time"
 
+	"github.com/Jonathan-Mckenzie/godub"
+	"github.com/Jonathan-Mckenzie/godub/converter"
 	"github.com/caicloud/nirvana/log"
-	"github.com/hopesea/godub/v2"
-	"github.com/hopesea/godub/v2/converter"
 )
 
 func main() {
