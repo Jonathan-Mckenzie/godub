@@ -200,6 +200,14 @@ func (seg *AudioSegment) ApplyGain(volumeChange Volume) (*AudioSegment, error) {
 	return seg.derive(data)
 }
 
+func (seg *AudioSegment) ApplyGainWithRatio(volumeChange float64) (*AudioSegment, error) {
+	data, err := audioop.Mul(seg.data, int(seg.sampleWidth), volumeChange)
+	if err != nil {
+		return nil, err
+	}
+	return seg.derive(data)
+}
+
 func (seg *AudioSegment) Repeat(count int) (*AudioSegment, error) {
 	return seg.derive(bytes.Repeat(seg.data, count))
 }
