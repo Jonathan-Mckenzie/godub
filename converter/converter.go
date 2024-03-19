@@ -54,6 +54,7 @@ type Converter struct {
 	sampleRate    int
 	params        []string
 	cmd           *exec.Cmd
+	startSeek     string
 
 	// It's a temp file
 	srcFilename string
@@ -165,6 +166,14 @@ func (c *Converter) WithID3TagVersion(v int) *Converter {
 	return c
 }
 
+func (c *Converter) WithStartSeek(v int) *Converter {
+	if v <= 0 {
+		return c
+	}
+	c.startSeek = fmt.Sprintf("%d", v)
+	return c
+}
+
 func (c *Converter) DstFormat() string {
 	return c.dstFormat
 }
@@ -198,6 +207,9 @@ func (c *Converter) doConvert() error {
 		return err
 	}
 	defer os.Remove(dstFile.Name())
+
+	// -ss must come before -i
+	c.extendStartSeekArgs()
 
 	c.extendCmdArgs("-i", c.srcFilename)
 	c.extendCodecFormatArgs()
@@ -292,6 +304,12 @@ func (c *Converter) extendTagsArgs() error {
 	}
 
 	return nil
+}
+
+func (c *Converter) extendStartSeekArgs() {
+	if c.startSeek != "" {
+		c.extendCmdArgs("-ss", c.startSeek)
+	}
 }
 
 func (c *Converter) extendExtraArgs() {
