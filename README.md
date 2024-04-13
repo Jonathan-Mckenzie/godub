@@ -4,6 +4,7 @@ godub
 - deprecation fixes
 - trim silence capability
 - internal refs to v2 now updated
+- remove 'which' dependency
 
 ==================
 
