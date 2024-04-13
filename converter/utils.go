@@ -1,21 +1,23 @@
 package converter
 
 import (
-	"fmt"
-
 	"os/exec"
 )
 
+const (
+	encoderProgram = "ffmpeg"
+)
+
+// GetEncoderName returns the name of the encoder program, just ffmpeg for now.
 func GetEncoderName() string {
-	if IsCommandAvailable(FFMPEGEncoder) {
-		return FFMPEGEncoder
-	} else {
-		panic(fmt.Sprintf("command `%s` not found", FFMPEGEncoder))
-	}
+	return encoderProgram
 }
 
-func IsCommandAvailable(name string) bool {
-	cmd := exec.Command("which", name)
+// IsCommandAvailable returns true if the known encoder program is available from the system path.
+func IsCommandAvailable() bool {
+	// run a harmless "-version" to check if ffmpeg is available.
+	// (Note: some systems don't have the program 'which' installed on path, 'which ffmpeg' will fail.)
+	cmd := exec.Command(encoderProgram, "-version")
 	if err := cmd.Run(); err != nil {
 		return false
 	}

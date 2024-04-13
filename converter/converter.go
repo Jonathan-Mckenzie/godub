@@ -26,10 +26,6 @@ var (
 )
 
 const (
-	FFMPEGEncoder = "ffmpeg"
-)
-
-const (
 	MP3BitRateEconomy  = 64 * 1000
 	MP3BitRateStandard = 128 * 1000
 	MP3BitRateGood     = 192 * 1000
@@ -60,6 +56,11 @@ type Converter struct {
 }
 
 func NewConverter(w io.Writer) *Converter {
+
+	if !IsCommandAvailable() {
+		panic(fmt.Sprintf("command `%s` not found", encoderProgram))
+	}
+
 	return &Converter{
 		w:             w,
 		dstFormat:     "mp3",
